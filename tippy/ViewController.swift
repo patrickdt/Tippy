@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        billField.becomeFirstResponder()
         let tipDefault = UserDefaults.standard
         tipDefault.set(18, forKey: "one")
         tipDefault.set(20, forKey: "two")
@@ -33,6 +34,7 @@ class ViewController: UIViewController {
         // This is a good place to retrieve the default tip percentage from UserDefaults
         // and use it to update the tip
         // amount
+        billField.becomeFirstResponder()
         let tipDefault = UserDefaults.standard
         let tip1 = tipDefault.double(forKey:"one")
         let tip2 = tipDefault.double(forKey:"two")
@@ -40,6 +42,11 @@ class ViewController: UIViewController {
         tipControl.setTitle(String(tip1) + "%", forSegmentAt: 0)
         tipControl.setTitle(String(tip2) + "%", forSegmentAt: 1)
         tipControl.setTitle(String(tip3) + "%", forSegmentAt: 2)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        billField.becomeFirstResponder()
     }
 
     override func didReceiveMemoryWarning() {

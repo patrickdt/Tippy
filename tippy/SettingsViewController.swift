@@ -51,6 +51,8 @@ class SettingsViewController: UIViewController {
         tipDefault.set(Double(tip2Field.text!), forKey: "two")
         tipDefault.set(Double(tip3Field.text!), forKey: "three")
         tipDefault.synchronize()
+        
+        self.navigationController?.popViewController(animated: true)
     }
     
 }
